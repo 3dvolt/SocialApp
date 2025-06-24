@@ -61,7 +61,10 @@ export default function ProfileScreen({
             <FlexContainer position="rowBetween">
               <TouchableOpacity
                 onPress={() => {
-                  navigation.goBack();
+                  navigation.reset({
+                    index: 0,
+                    routes: [{ name: "UserCreationScreen" }]
+                  });
                 }}
               >
                 <BackArrowCircleIcon height={35} width={35} />

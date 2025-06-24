@@ -3,7 +3,7 @@ type BottomScreensParamsList = {
   ProfileScreen: ProfileScreenDataProps;
   ChatScreen: undefined;
   NotificationsScreen: undefined;
-  CameraScreen: undefined;
+  SubmitDanceEventScreen: undefined;
 };
 
 type UserDetailsType = {

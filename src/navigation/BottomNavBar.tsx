@@ -1,10 +1,11 @@
 /* eslint-disable react-native/no-inline-styles */
 import {
-  HomeScreen,
   ChatScreen,
-  CameraScreen,
+  SubmitDanceEventScreen,
   ProfileScreen,
   NotificationsScreen,
+    UserCreationScreen,
+    EventsScreen
 } from "@app/screens";
 import StaticData from "@app/static/profileData.json";
 import { BottomScreensParamsList } from "@app/types";
@@ -34,7 +35,7 @@ const options: BottomTabNavigationOptions = {
   tabBarHideOnKeyboard: true,
   tabBarShowLabel: false,
   tabBarStyle: {
-    backgroundColor: Colors.SkyBlueMedium,
+    backgroundColor: Colors.SkyBlue,
     borderTopWidth: 0,
     height: isAndroid ? 90 : 100,
   },
@@ -53,8 +54,8 @@ export default () => {
       }}
     >
       <Tab.Screen
-        name="HomeScreen"
-        component={HomeScreen}
+        name="EventsScreen"
+        component={EventsScreen}
         options={{
           ...options,
           tabBarIcon: (e) => {
@@ -68,25 +69,47 @@ export default () => {
           },
         }}
       />
+        <Tab.Screen
+            name="NotificationsScreen"
+            component={NotificationsScreen}
+            options={{
+                ...options,
+                tabBarIcon: (e) => {
+                    return e.focused ? (
+                        <View style={styles.activeTab}>
+                            <NotificationsIcon
+                                height={TAB_ICON_SIZE}
+                                width={TAB_ICON_SIZE}
+                            />
+                        </View>
+                    ) : (
+                        <NotificationsIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
+                    );
+                },
+            }}
+        />
+        <Tab.Screen
+            name="UserCreationScreen"
+            component={UserCreationScreen}
+            options={{
+                ...options,
+                tabBarIcon: (e) => {
+                    return e.focused ? (
+                        <View style={styles.activeTab}>
+                            <NotificationsIcon
+                                height={TAB_ICON_SIZE}
+                                width={TAB_ICON_SIZE}
+                            />
+                        </View>
+                    ) : (
+                        <NotificationsIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
+                    );
+                },
+            }}
+        />
       <Tab.Screen
-        name="ChatScreen"
-        component={ChatScreen}
-        options={{
-          ...options,
-          tabBarIcon: (e) => {
-            return e.focused ? (
-              <View style={styles.activeTab}>
-                <ChatIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
-              </View>
-            ) : (
-              <ChatIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
-            );
-          },
-        }}
-      />
-      <Tab.Screen
-        name="CameraScreen"
-        component={CameraScreen}
+        name="SubmitDanceEventScreen"
+        component={SubmitDanceEventScreen}
         options={{
           ...options,
           headerShown: true,
@@ -108,42 +131,39 @@ export default () => {
           },
         }}
       />
-      <Tab.Screen
-        initialParams={StaticData.profileData}
-        name="ProfileScreen"
-        component={ProfileScreen}
-        options={{
-          ...options,
-          tabBarIcon: (e) => {
-            return e.focused ? (
-              <View style={styles.activeTab}>
-                <ProfileIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
-              </View>
-            ) : (
-              <ProfileIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
-            );
-          },
-        }}
-      />
-      <Tab.Screen
-        name="NotificationsScreen"
-        component={NotificationsScreen}
-        options={{
-          ...options,
-          tabBarIcon: (e) => {
-            return e.focused ? (
-              <View style={styles.activeTab}>
-                <NotificationsIcon
-                  height={TAB_ICON_SIZE}
-                  width={TAB_ICON_SIZE}
-                />
-              </View>
-            ) : (
-              <NotificationsIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
-            );
-          },
-        }}
-      />
+        <Tab.Screen
+            name="ChatScreen"
+            component={ChatScreen}
+            options={{
+                ...options,
+                tabBarIcon: (e) => {
+                    return e.focused ? (
+                        <View style={styles.activeTab}>
+                            <ChatIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
+                        </View>
+                    ) : (
+                        <ChatIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
+                    );
+                },
+            }}
+        />
+        <Tab.Screen
+            initialParams={StaticData.profileData}
+            name="ProfileScreen"
+            component={ProfileScreen}
+            options={{
+                ...options,
+                tabBarIcon: (e) => {
+                    return e.focused ? (
+                        <View style={styles.activeTab}>
+                            <ProfileIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
+                        </View>
+                    ) : (
+                        <ProfileIcon height={TAB_ICON_SIZE} width={TAB_ICON_SIZE} />
+                    );
+                },
+            }}
+        />
     </Tab.Navigator>
   );
 };

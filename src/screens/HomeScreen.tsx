@@ -61,7 +61,7 @@ export default function HomeScreen({
             <QuickActionButton
               style={{ backgroundColor: Colors.LightSkyBlue }}
               onPress={() => {
-                navigation.navigate("CameraScreen");
+                navigation.navigate("SubmitDanceEventScreen");
               }}
             >
               <CameraIcon height={20} width={20} />

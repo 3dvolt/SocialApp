@@ -46,7 +46,7 @@ async function saveToLocalStorage(key: string, value: string): Promise<void> {
 enum Colors {
   JustBlack = "#000000",
   JustWhite = "#ffffff",
-  SkyBlue = "#5C95E3",
+  SkyBlue = "#4090fd",
   LightSkyBlue = "#E6EEFA",
   SkyBlueMedium = "#648BBB",
 }
@@ -66,7 +66,7 @@ enum FontSize {
 
 const defaultStyles = StyleSheet.create({
   boxShadow: {
-    shadowColor: "#5c95e3",
+    shadowColor: "#4090fd",
     shadowOffset: {
       width: 0,
       height: 12,
